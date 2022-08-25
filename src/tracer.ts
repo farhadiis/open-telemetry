@@ -1,4 +1,3 @@
-// import opentelemetry from '@opentelemetry/api';
 import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
@@ -14,7 +13,7 @@ import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
 
-const load = (pkg) => {
+const trace = (pkg) => {
   registerInstrumentations({
     instrumentations: [getNodeAutoInstrumentations()],
   });
@@ -35,4 +34,4 @@ const load = (pkg) => {
   provider.register();
 };
 
-export default load;
+export default trace;

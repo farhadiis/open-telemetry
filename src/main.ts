@@ -1,7 +1,5 @@
-import load from './tracer';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const P = require('../package.json');
-load(P);
+import trace from './tracer';
+trace(require('../package.json')); // ===> MUST RUN BEFORE ANY THINGS.
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
